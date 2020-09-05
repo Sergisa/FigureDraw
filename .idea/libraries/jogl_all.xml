@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jogl-all">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Загрузки/DueAWGController-linux32/lib/jogl-all.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

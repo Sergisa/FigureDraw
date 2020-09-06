@@ -36,7 +36,7 @@ public class DueAWGControllerLinux extends PApplet {
 
     public void draw()
     {
-        drawer.draw(new Rectangle());
+        drawer.draw(new Rectangle(2,8));
         drawGrid();
     }
 

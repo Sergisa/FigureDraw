@@ -2,9 +2,11 @@ import processing.core.*;
 
 public class DueAWGControllerLinux extends PApplet {
     Drawer drawer;
+    Rectangle myRectangle;
     public void settings()
     {
         this.drawer = new Drawer(this);
+        myRectangle = new Rectangle(2,5);
         size(500,500);
     }
 
@@ -41,7 +43,7 @@ public class DueAWGControllerLinux extends PApplet {
     }
 
     static public void main(String[] passedArgs) {
-
+        System.out.println("data");
         String[] appletArgs = new String[] { "DueAWGControllerLinux" };
         if (passedArgs != null) {
             PApplet.main(concat(appletArgs, passedArgs));

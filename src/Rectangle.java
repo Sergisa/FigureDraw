@@ -1,6 +1,7 @@
 public class Rectangle extends GeomteryFigure{
-    double height,width;
-    public Rectangle(int height, int width){
+    double height;
+    double width;
+    public Rectangle(double height, double width){
         this.height = height;
         this.width = width;
     }

@@ -1,4 +1,6 @@
 public interface Figure {
-    public double getPerimetr();
+    final String name = "";
+    public double getPerimeter();
     public double getArea();
+    public String getName();
 }

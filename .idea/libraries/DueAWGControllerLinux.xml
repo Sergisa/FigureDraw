@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="DueAWGControllerLinux">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Загрузки/DueAWGController-linux32/lib/DueAWGControllerLinux.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

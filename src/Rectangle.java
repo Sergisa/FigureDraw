@@ -1,7 +1,8 @@
 public class Rectangle extends GeomteryFigure{
-    double height;
-    double width;
-    public Rectangle(double height, double width){
+    float height;
+    float width;
+    private final String name="Мой прямоугольник";
+    public Rectangle(float height, float width){
         this.height = height;
         this.width = width;
     }
@@ -9,7 +10,13 @@ public class Rectangle extends GeomteryFigure{
     public double getArea(){
         return this.height*this.width;
     }
-    public double getPerimetr(){
+
+    public double getPerimeter(){
         return 2*this.height + 2*this.width;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 }

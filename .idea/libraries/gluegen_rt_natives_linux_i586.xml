@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="gluegen-rt-natives-linux-i586">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Загрузки/DueAWGController-linux32/lib/gluegen-rt-natives-linux-i586.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

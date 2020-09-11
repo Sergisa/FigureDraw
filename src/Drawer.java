@@ -1,3 +1,6 @@
+import geometry.Circle;
+import geometry.GeomteryFigure;
+import geometry.Rectangle;
 import processing.core.*;
 
 public class Drawer {

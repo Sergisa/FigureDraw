@@ -1,3 +1,6 @@
+import geometry.Circle;
+import geometry.GeomteryFigure;
+import geometry.Rectangle;
 import processing.core.*;
 
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ public class DueAWGControllerLinux extends PApplet {
     public void settings()
     {
         this.drawer = new Drawer(this);
-        myRectangle = new Rectangle(2,5);
+        myRectangle = new Rectangle(2,5, "Мой прямоугольник");
         myCircle = new Circle(5);
         figures = new ArrayList<GeomteryFigure>();
         figures.add(myRectangle);

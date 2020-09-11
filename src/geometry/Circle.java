@@ -1,6 +1,9 @@
+package geometry;
+
 public class Circle extends GeomteryFigure{
-    float radius;
+    public float radius;
     public Circle(float radius){
+        super("");
         this.radius = radius;
     }
 

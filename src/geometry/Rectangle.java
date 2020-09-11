@@ -1,12 +1,15 @@
+package geometry;
+
 public class Rectangle extends GeomteryFigure{
-    float height;
-    float width;
-    private final String name="Мой прямоугольник";
-    public Rectangle(float height, float width){
+    public float height;
+    public float width;
+    static String type="Прямоугольник";
+
+    public Rectangle(float height, float width, String name){
+        super(name);
         this.height = height;
         this.width = width;
     }
-
     public double getArea(){
         return this.height*this.width;
     }
@@ -18,5 +21,9 @@ public class Rectangle extends GeomteryFigure{
     @Override
     public String getName() {
         return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

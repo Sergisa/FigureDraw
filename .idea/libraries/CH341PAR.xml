@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CH341PAR">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/CH341PAR_ANDROID/CH341PAR_ANDROID/lib/CH341PAR.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

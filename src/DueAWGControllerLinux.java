@@ -1,3 +1,6 @@
+import algebra.Algoritm;
+import algebra.LinearSystem;
+import algebra.MyEquation;
 import geometry.Circle;
 import geometry.GeomteryFigure;
 import geometry.Rectangle;
@@ -11,6 +14,8 @@ public class DueAWGControllerLinux extends PApplet {
     Rectangle myRectangle;
     Circle myCircle;
     List<GeomteryFigure> figures;
+    private static final int DEFAULT_EQUATIONS_NUMBER = 3;
+    private static final int DEFAULT_VARIABLES_NUMBER = 3;
     public void settings()
     {
         this.drawer = new Drawer(this);

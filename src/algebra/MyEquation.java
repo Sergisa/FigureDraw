@@ -10,6 +10,19 @@ public class MyEquation implements Gauss<Float, MyEquation>{
     public List<Float> getEquation(){
         return equation;
     }
+
+    public MyEquation (){}
+    public MyEquation (int[] coefficients){
+        for (int i = 0; i < coefficients.length; i++){
+            this.equation.add((float) coefficients[i]);
+        }
+    }
+
+    public MyEquation (float[] coefficients){
+        for (int i = 0; i < coefficients.length; i++){
+            this.equation.add(coefficients[i]);
+        }
+    }
     public void generate(int size){
         if (size < 2) size = 2;
         this.equation.clear();

@@ -1,6 +1,7 @@
 import geometry.Circle;
 import geometry.GeomteryFigure;
 import geometry.Rectangle;
+import geometry.Triangle;
 import processing.core.*;
 
 public class Drawer {
@@ -13,6 +14,7 @@ public class Drawer {
     }
     public void draw(GeomteryFigure figure){
         if(figure instanceof Rectangle){
+            //this.applet.rectMode(PConstants.CENTER);
             this.applet.rect(
                     startPoint[X_POINTER],
                     startPoint[Y_POINTER],
@@ -21,6 +23,9 @@ public class Drawer {
             );
         }
 
+        if(figure instanceof Triangle){
+            //this.applet.triangle();
+        }
         if(figure instanceof Circle){
             this.applet.arc(
                     35,

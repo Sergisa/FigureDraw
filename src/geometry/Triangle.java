@@ -5,11 +5,15 @@ import java.util.List;
 
 public class Triangle extends GeomteryFigure implements Figure{
     int a,b,c;
-    public Triangle(int length1, int length2, int length3){
-        super("wf");
-        this.a = length1;
-        this.b = length2;
-        this.c = length3;
+    public Triangle(int a, int b, int c){
+        this(a, b, c, null);
+    }
+
+    public Triangle(int a, int b, int c, String name){
+        super(name);
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
     @Override
@@ -21,10 +25,5 @@ public class Triangle extends GeomteryFigure implements Figure{
     public double getArea() {
         double p = getPerimeter()/2;
         return Math.sqrt(p*(p-a)*(p-b)*(p-c));
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 }

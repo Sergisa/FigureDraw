@@ -5,6 +5,9 @@ public class Rectangle extends GeomteryFigure{
     public float width;
     static String type="Прямоугольник";
 
+    public Rectangle(float height, float width) {
+        this(height, width, null);
+    }
     public Rectangle(float height, float width, String name){
         super(name);
         this.height = height;
@@ -18,12 +21,4 @@ public class Rectangle extends GeomteryFigure{
         return 2*this.height + 2*this.width;
     }
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

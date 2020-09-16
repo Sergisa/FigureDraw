@@ -3,7 +3,11 @@ package geometry;
 public class Circle extends GeomteryFigure{
     public float radius;
     public Circle(float radius){
-        super("");
+        this(radius, null);
+    }
+
+    public Circle(float radius, String name){
+        super(name);
         this.radius = radius;
     }
 

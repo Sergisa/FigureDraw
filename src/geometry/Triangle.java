@@ -9,7 +9,7 @@ public class Triangle extends GeomteryFigure implements Figure{
         this(a, b, c, null);
     }
 
-    public Triangle(int a, int b, int c, String name){
+    public Triangle(int a, int b, int c, String name) {
         super(name);
         this.a = a;
         this.b = b;

@@ -1,4 +1,4 @@
-import geometry.Circle;
+import geometry.Ellipse;
 import geometry.GeomteryFigure;
 import geometry.Rectangle;
 import geometry.Triangle;
@@ -9,6 +9,7 @@ public class Drawer {
     final private int[] startPoint = {3,2};
     final private int X_POINTER = 1;
     final private int Y_POINTER = 2;
+    final protected String d = "wgwegweg";
     public Drawer(PApplet applet){
         this.applet = applet;
     }
@@ -26,12 +27,12 @@ public class Drawer {
         if(figure instanceof Triangle){
             //this.applet.triangle();
         }
-        if(figure instanceof Circle){
+        if(figure instanceof Ellipse){
             this.applet.arc(
-                    35,
-                    35,
-                    ((Circle) figure).radius,
-                    ((Circle) figure).radius,
+                    ((Ellipse) figure).getCenter().x,
+                    ((Ellipse) figure).getCenter().y,
+                    ((Ellipse) figure).radius1 * 2,
+                    ((Ellipse) figure).radius2 * 2,
                     0,
                     1000
             );

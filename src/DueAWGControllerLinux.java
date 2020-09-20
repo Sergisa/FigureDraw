@@ -1,23 +1,31 @@
 import geometry.*;
 import processing.core.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DueAWGControllerLinux extends PApplet {
+    Dot rotationDot;
     Drawer drawer;
-    Ellipse myCircle;
+    Ellipse myCircle, rotatedCircle;
     List<GeomteryFigure> figures;
     public void settings()
     {
         this.drawer = new Drawer(this);
-        figures = new ArrayList<GeomteryFigure>();
-        myCircle = Ellipse.createCircle(50);
-        myCircle.setName("Кружочек");
-        myCircle.setCenter(new Dot(100,100));
-        myCircle.rotate(90, new Dot(100, 300));
+        figures = new ArrayList<>();
+        rotationDot = new Dot(100, 300);
+        myCircle = Ellipse.createCircle(30);
+        rotatedCircle = Ellipse.createCircle(30);
+        rotatedCircle.setColor(Color.BLUE);
 
+        myCircle.setCenter(new Dot(100,100));
+        rotatedCircle.setCenter(new Dot(100,100));
+        rotatedCircle.rotate(90, rotationDot);
+        System.out.println("x: "+rotatedCircle.getCenter().x + "  y: "+rotatedCircle.getCenter().y);
+        System.out.println("color: "+rotatedCircle.getColor());
         figures.add(myCircle);
+        figures.add(rotatedCircle);
         size(500,500);
         for (GeomteryFigure figure:figures) {
             System.out.println(figure.getClass().getSuperclass().getName() +" ["+ figure.getClass().getName()+"] "+figure.getName());
@@ -42,6 +50,10 @@ public class DueAWGControllerLinux extends PApplet {
     public void draw()
     {
         drawer.draw(myCircle);
+        drawer.draw(rotatedCircle);
+        strokeWeight(4);
+        stroke(204, 102, 0);
+        drawer.draw(rotationDot);
         super.draw();
     }
 

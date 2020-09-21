@@ -6,26 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DueAWGControllerLinux extends PApplet {
-    Dot rotationDot;
+    Dot rotationRelativeDot, rotatingDot, rotatedDot;
     Drawer drawer;
-    Ellipse myCircle, rotatedCircle;
     List<GeomteryFigure> figures;
     public void settings()
     {
         this.drawer = new Drawer(this);
         figures = new ArrayList<>();
-        rotationDot = new Dot(100, 300);
-        myCircle = Ellipse.createCircle(30);
-        rotatedCircle = Ellipse.createCircle(30);
-        rotatedCircle.setColor(Color.BLUE);
+        rotationRelativeDot = new Dot(100,100);
+        rotationRelativeDot.setColor(Color.RED);
+        rotatingDot = new Dot(100,300);
+        rotatingDot.setColor(Color.CYAN);
+        rotatedDot = new Dot(100,300);
+        rotatedDot.setColor(Color.BLUE);
+        rotatedDot.rotate(-90, rotationRelativeDot);
 
-        myCircle.setCenter(new Dot(100,100));
-        rotatedCircle.setCenter(new Dot(100,100));
-        rotatedCircle.rotate(90, rotationDot);
-        System.out.println("x: "+rotatedCircle.getCenter().x + "  y: "+rotatedCircle.getCenter().y);
-        System.out.println("color: "+rotatedCircle.getColor());
-        figures.add(myCircle);
-        figures.add(rotatedCircle);
+
+        System.out.println("Rotating point  x: "+ rotatingDot.x + "  y: "+ rotatingDot.y);
+        System.out.println("Relation point  x: "+ rotationRelativeDot.x + "  y: "+ rotationRelativeDot.y);
         size(500,500);
         for (GeomteryFigure figure:figures) {
             System.out.println(figure.getClass().getSuperclass().getName() +" ["+ figure.getClass().getName()+"] "+figure.getName());
@@ -37,29 +35,33 @@ public class DueAWGControllerLinux extends PApplet {
     }
 
     public void mousePressed()
-    {}
+    {
+        System.out.println("Mouse pressed");
+    }
 
     public void mouseReleased()
-    {}
+    {
+        System.out.println("Mouse released");
+    }
 
     public void keyPressed()
     {
-        loop();
+        System.out.println("key pressed");
     }
 
     public void draw()
     {
-        drawer.draw(myCircle);
-        drawer.draw(rotatedCircle);
+        background(Color.DARK_GRAY.getRed(), Color.DARK_GRAY.getGreen(), Color.DARK_GRAY.getBlue());
         strokeWeight(4);
-        stroke(204, 102, 0);
-        drawer.draw(rotationDot);
+        drawer.draw(rotatingDot);
+        drawer.draw(rotatedDot);
+        //stroke(204, 102, 0);
+        drawer.draw(rotationRelativeDot);
         super.draw();
     }
 
 
     static public void main(String[] passedArgs) {
-        System.out.println("Known figures:");
         String[] appletArgs = new String[] { "DueAWGControllerLinux" };
         if (passedArgs != null) {
             PApplet.main(concat(appletArgs, passedArgs));

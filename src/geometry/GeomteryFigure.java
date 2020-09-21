@@ -29,9 +29,20 @@ public abstract class GeomteryFigure implements Figure{
     public Color getColor(){
         return this.color;
     }
-    public void rotate(float angle, Dot rotationPoint){
+    public void rotate(float angle, Dot rotationPoint) {
         for (Dot dot : mainDots) {
-            dot.rotate(angle * Math.PI / 180, rotationPoint);
+            dot.rotate(angle, rotationPoint);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "GeomteryFigure{" +
+                "color=" + color +
+                ", area=" + area +
+                ", perimetr=" + perimetr +
+                ", name='" + name + '\'' +
+                ", mainDots=" + mainDots +
+                '}';
     }
 }

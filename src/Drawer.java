@@ -12,6 +12,13 @@ public class Drawer {
         this.applet = applet;
     }
     public void draw(Dot dot){
+        if (dot.getColor() != null){
+            this.applet.stroke(
+                    dot.getColor().getRed(),
+                    dot.getColor().getGreen(),
+                    dot.getColor().getBlue()
+            );
+        }
         this.applet.point(dot.x, dot.y);
     }
     public void draw(GeomteryFigure figure){

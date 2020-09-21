@@ -37,4 +37,13 @@ public class Ellipse extends GeomteryFigure{
         this.name = name;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Ellipse{" +
+                "radius1=" + radius1 +
+                ", radius2=" + radius2 +
+                ", centerDot=[" + centerDot.x + ", " +centerDot.y+
+                "]}";
+    }
 }

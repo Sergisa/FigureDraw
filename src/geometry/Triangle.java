@@ -3,7 +3,7 @@ package geometry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Triangle extends GeomteryFigure implements Figure{
+public class Triangle extends GeomteryFigure{
     int a,b,c;
     public Triangle(int a, int b, int c){
         this(a, b, c, null);

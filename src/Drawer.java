@@ -1,7 +1,4 @@
-import geometry.Dot;
-import geometry.Ellipse;
-import geometry.GeomteryFigure;
-import geometry.Rectangle;
+import geometry.*;
 import processing.core.*;
 
 public class Drawer {
@@ -11,15 +8,36 @@ public class Drawer {
     public Drawer(PApplet applet){
         this.applet = applet;
     }
-    public void draw(Dot dot){
-        if (dot.getColor() != null){
-            this.applet.stroke(
-                    dot.getColor().getRed(),
-                    dot.getColor().getGreen(),
-                    dot.getColor().getBlue()
+
+    public void draw(GeomteryObject object){
+        if(object instanceof Line){
+            this.applet.strokeWeight(1);
+
+            if (((Line)object).getColor() != null){
+                this.applet.stroke(
+                        ((Line)object).getColor().getRed(),
+                        ((Line)object).getColor().getGreen(),
+                        ((Line)object).getColor().getBlue()
+                );
+            }
+            this.applet.line(
+                    ((Line)object).point1.x,
+                    ((Line)object).point1.y,
+                    ((Line)object).point2.x,
+                    ((Line)object).point2.y
             );
         }
-        this.applet.point(dot.x, dot.y);
+        if(object instanceof Dot){
+            this.applet.strokeWeight(4);
+            if (object.getColor() != null){
+                this.applet.stroke(
+                        object.getColor().getRed(),
+                        object.getColor().getGreen(),
+                        object.getColor().getBlue()
+                );
+            }
+            this.applet.point(((Dot)object).x, ((Dot)object).y);
+        }
     }
     public void draw(GeomteryFigure figure){
         final int X_POINTER = 1;

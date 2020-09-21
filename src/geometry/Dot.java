@@ -2,7 +2,7 @@ package geometry;
 
 import java.awt.*;
 
-public class Dot{
+public class Dot extends GeomteryObject{
     public float x;
     public float y;
     private Color color;

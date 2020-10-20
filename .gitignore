@@ -1,5 +1,9 @@
 # Project exclude paths
 /out/
 *.xml
-/.idea/*.xml
-.idea/*.xml
+/.idea/*
+.idea/*
+/.idea/
+.idea/
+/.idea
+.idea

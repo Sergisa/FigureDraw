@@ -25,12 +25,14 @@ public class Main {
         line1.setColor(Color.CYAN);
         line2 = Line.create(rotationRelativeDot, rotatedDot);
         line2.setColor(Color.CYAN);
-
+        
 
         System.out.println("Rotating point  x: "+ rotatingDot.x + "  y: "+ rotatingDot.y);
         System.out.println("Relation point  x: "+ rotationRelativeDot.x + "  y: "+ rotationRelativeDot.y);
+        System.out.println("Угол поворота: 45 (по часовой стрелке)");
+        System.out.println("Rotated point  x: "+ rotatedDot.x + "  y: "+ rotatedDot.y);
         //size(500,500);
-        for (GeomteryFigure figure:figures) {
+        for(GeomteryFigure figure:figures) {
             System.out.println(figure.getClass().getSuperclass().getName() +" ["+ figure.getClass().getName()+"] "+figure.getName());
         }
         form frm = new form();

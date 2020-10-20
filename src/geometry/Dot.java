@@ -1,6 +1,7 @@
 package geometry;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class Dot extends GeomteryObject{
     public float x;
@@ -30,5 +31,28 @@ public class Dot extends GeomteryObject{
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "Dot{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dot)) return false;
+        Dot dot = (Dot) o;
+        return Float.compare(dot.x, x) < 0.1 &&
+                Float.compare(dot.y, y) < 0.1 &&
+                Objects.equals(getColor(), dot.getColor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, getColor());
     }
 }

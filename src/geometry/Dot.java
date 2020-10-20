@@ -22,7 +22,6 @@ public class Dot extends GeomteryObject{
         newY = (float) (((this.x - rotationPoint.x) * Math.sin(angle)) + ((this.y - rotationPoint.y) * Math.cos(angle)) + rotationPoint.y);
         this.x = newX;
         this.y = newY;
-        Math.
     }
 
     public Color getColor() {

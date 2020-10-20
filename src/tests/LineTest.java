@@ -20,6 +20,9 @@ public class LineTest {
                 new Dot(300,100)
         );
 
-        Assert.assertEquals(expectingLine, actualLine);
+        Assert.assertEquals("static builder via Dots",expectingLine, actualLine);
+        actualLine = Line.create(new float[]{100,300}, new float[]{300,100});
+
+        Assert.assertEquals("static builder via arrays", expectingLine, actualLine);
     }
 }

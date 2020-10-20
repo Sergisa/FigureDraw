@@ -12,6 +12,10 @@ public class Dot extends GeomteryObject{
         this.y = y;
     }
 
+    public Dot(double x, double y){
+        this((float)x, (float)y);
+    }
+
     public void rotate(double angle){
         this.rotate(angle, new Dot(0,0));
     }

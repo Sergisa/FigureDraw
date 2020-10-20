@@ -14,10 +14,7 @@ public class Line extends GeomteryObject {
         return new Line(null, dot1, dot2);
     }
     public static Line create(float[] a, float[] b){
-        return create(
-                new Dot(a[0],a[1]),
-                new Dot(b[0],b[1])
-        );
+        return create( new Dot(a[0],a[1]), new Dot(b[0],b[1]) );
     }
 
     @Override

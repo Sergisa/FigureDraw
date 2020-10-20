@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class form extends JFrame {
+public class MainForm extends JFrame {
     private JPanel rootPanel;
 
-    public form(){
+    public MainForm(){
 
 
         rootPanel = new DrawPanel();

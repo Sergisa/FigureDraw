@@ -25,7 +25,7 @@ public class Main {
         line1.setColor(Color.CYAN);
         line2 = Line.create(rotationRelativeDot, rotatedDot);
         line2.setColor(Color.CYAN);
-        
+
 
         System.out.println("Rotating point  x: "+ rotatingDot.x + "  y: "+ rotatingDot.y);
         System.out.println("Relation point  x: "+ rotationRelativeDot.x + "  y: "+ rotationRelativeDot.y);
@@ -35,6 +35,6 @@ public class Main {
         for(GeomteryFigure figure:figures) {
             System.out.println(figure.getClass().getSuperclass().getName() +" ["+ figure.getClass().getName()+"] "+figure.getName());
         }
-        form frm = new form();
+        MainForm frm = new MainForm();
     }
 }

@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class MainForm extends JFrame {
     private JPanel rootPanel;
+    private JButton button1;
 
     public MainForm(){
 

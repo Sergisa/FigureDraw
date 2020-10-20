@@ -26,5 +26,6 @@
     </orderEntry>
     <orderEntry type="library" name="org.junit.jupiter:junit-jupiter:5.6.0-M1" level="project" />
     <orderEntry type="library" name="CH341PAR" level="project" />
+    <orderEntry type="library" name="junit:junit:4.12" level="project" />
   </component>
 </module>

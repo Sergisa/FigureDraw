@@ -16,17 +16,18 @@ public class Dot extends GeomteryObject{
         this((float)x, (float)y);
     }
 
-    public void rotate(double angle){
-        this.rotate(angle, new Dot(0,0));
+    public Dot rotate(double angle){
+        return this.rotate(angle, new Dot(0,0));
     }
 
-    public void rotate(double angle, Dot rotationPoint){
+    public Dot rotate(double angle, Dot rotationPoint){
         angle = angle * (Math.PI / 180);
         float newX,newY;
         newX = (float) (((this.x - rotationPoint.x) * Math.cos(angle)) - ((this.y - rotationPoint.y) * Math.sin(angle)) + rotationPoint.x);
         newY = (float) (((this.x - rotationPoint.x) * Math.sin(angle)) + ((this.y - rotationPoint.y) * Math.cos(angle)) + rotationPoint.y);
-        this.x = newX;
-        this.y = newY;
+        /*this.x = newX;
+        this.y = newY;*/
+        return new Dot(newX, newY);
     }
 
     public Color getColor() {

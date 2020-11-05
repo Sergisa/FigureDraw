@@ -1,29 +1,18 @@
 package geometry;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Triangle extends GeomteryFigure{
-    int a,b,c;
-    public Triangle(int a, int b, int c){
-        this(a, b, c, null);
-    }
+    public double a;
+    public double b;
+    public double c;
 
-    public Triangle(int a, int b, int c, String name) {
-        super(name);
-        this.a = a;
-        this.b = b;
-        this.c = c;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return a+b+c;
-    }
-
-    @Override
-    public double getArea() {
-        double p = getPerimeter()/2;
-        return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+    public Triangle(Dot... dots) {
+        super("");
+        mainDots.addAll(Arrays.asList(dots));
+        
+        a=getPairs().get(0).getDistance();
+        b=getPairs().get(1).getDistance();
+        c=getPairs().get(2).getDistance();
     }
 }

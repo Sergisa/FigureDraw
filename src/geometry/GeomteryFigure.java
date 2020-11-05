@@ -3,6 +3,8 @@ package geometry;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 
 public abstract class GeomteryFigure implements Figure{
     private Color color;
@@ -44,5 +46,40 @@ public abstract class GeomteryFigure implements Figure{
                 ", name='" + name + '\'' +
                 ", mainDots=" + mainDots +
                 '}';
+    }
+
+    @Override
+    public double getPerimeter() {
+        double perimetr = 0;
+        for (DotPair pair : getPairs()) {
+            perimetr += pair.getDistance();
+        }
+        return perimetr;
+    }
+
+    @Override
+    public double getArea() {
+        double area = 0;
+        for (int i = 0; i < mainDots.size(); i++){
+            if(i == mainDots.size()-1){ // last iteration
+                area += mainDots.get(i).x * mainDots.get(0).y - mainDots.get(0).x * mainDots.get(i).y;
+            }else{
+                area += mainDots.get(i).x * mainDots.get(i+1).y - mainDots.get(i+1).x * mainDots.get(i).y;
+            }
+        }
+        return Math.abs(area)/2;
+    }
+
+    public List<DotPair> getPairs() {
+        List<DotPair> dotPairList = new ArrayList<>();
+
+        for (int i = 0; i < mainDots.size(); i++){
+            if(i == mainDots.size()-1){ // last iteration
+                dotPairList.add(new DotPair(mainDots.get(i),mainDots.get(0)));
+            }else{
+                dotPairList.add(new DotPair(mainDots.get(i),mainDots.get(i+1)));
+            }
+        }
+        return dotPairList;
     }
 }

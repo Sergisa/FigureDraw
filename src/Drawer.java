@@ -1,5 +1,5 @@
 import geometry.*;
-import processing.core.*;
+import processing.core.PApplet;
 
 public class Drawer {
     final private PApplet applet;

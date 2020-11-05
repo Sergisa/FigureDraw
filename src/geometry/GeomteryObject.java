@@ -1,8 +1,6 @@
 package geometry;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class GeomteryObject{
     private Color color;

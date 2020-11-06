@@ -13,10 +13,23 @@ public class SolverTest {
 
     @Test
     public void distance() {
+        Assert.assertEquals("ASC dot sequence",5, Solver.distance(
+                new Dot(1,5),
+                new Dot(4,1)
+        ),0.01);
+
+        Assert.assertEquals("DESC dot sequence",5, Solver.distance(
+                new Dot(4,1),
+                new Dot(1,5)
+        ),0.01);
     }
 
     @Test
-    public void testDistance() {
+    public void testDecimalDistance() {
+        Assert.assertEquals("Check decimal value",Math.sqrt(20), Solver.distance(
+                new Dot(1,1),
+                new Dot(3,5)
+        ),0.01);
     }
 
     @Test
@@ -54,10 +67,6 @@ public class SolverTest {
         );
 
         Assert.assertTrue("Check crossing chained lines", Solver.crosses(a,b));
-    }
-
-    @Test
-    public void swap() {
     }
 
     @Test

@@ -1,4 +1,4 @@
-package geometry;
+package tests;
 
 import org.junit.Test;
 

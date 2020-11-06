@@ -9,6 +9,16 @@ public abstract class GeomteryFigure implements Figure{
     private double area;
     private double perimetr;
     protected String name;
+
+    public List<Dot> getMainDots() {
+        return mainDots;
+    }
+
+    public GeomteryFigure setMainDots(List<Dot> mainDots) {
+        this.mainDots = mainDots;
+        return this;
+    }
+
     protected List<Dot> mainDots;
     public GeomteryFigure(String name){
         this.name = name;

@@ -1,6 +1,9 @@
 package geometry;
 
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Rectangle extends GeomteryFigure{
@@ -8,34 +11,27 @@ public class Rectangle extends GeomteryFigure{
     public float width;
     static String type="Прямоугольник";
 
-    public Rectangle(float height, float width, Dot center) {
-        this(
-                new Dot(center.x-width/2, center.y+height/2),
-                new Dot(center.x+width/2, center.y+height/2),
-                new Dot(center.x+width/2, center.y-height/2),
-                new Dot(center.x-width/2, center.y-height/2)
-        );
-    }
 
-    public Rectangle(Line diagonal, float width, float height) {
-        this(
-                height,
-                width,
-                diagonal.getCenter()
-        );
-    }
-
-    public Rectangle(Dot diagonalDot1, Dot diagonalDot2, float width, float height) {
-        this(
-                new Line(diagonalDot1, diagonalDot2),
-                width,
-                height
-        );
-    }
 
     public Rectangle(Dot... dots) {
         super("");
         mainDots.addAll(Arrays.asList(dots));
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public void setWidth(float width) {
+        this.width = width;
     }
 
     @Override
@@ -60,5 +56,69 @@ public class Rectangle extends GeomteryFigure{
                 ", width=" + width +
                 ", mainDots=" + mainDots +
                 "} " + super.toString();
+    }
+
+    public static final class Builder {
+
+        private String name;
+        private List<Dot> mainDots;
+        private float height;
+        private float width;
+
+        public Builder() {
+            mainDots = new ArrayList<>();
+        }
+
+        public static Builder aRectangle(){
+            return new Builder();
+        }
+
+        public Builder fromDots(List<Dot> val) {
+            mainDots = val;
+            return this;
+        }
+
+        public Builder withHeight(float val) {
+            height = val;
+            return this;
+        }
+
+        public Builder withWidth(float val) {
+            width = val;
+            return this;
+        }
+
+        public Builder withCenterPoint(Dot center){
+            if(!Float.isNaN(width) && !Float.isNaN(height)){
+                this.mainDots.add(new Dot(center.x-width/2, center.y+height/2));
+                this.mainDots.add(new Dot(center.x+width/2, center.y+height/2));
+                this.mainDots.add(new Dot(center.x+width/2, center.y-height/2));
+                this.mainDots.add(new Dot(center.x-width/2, center.y-height/2));
+            }else{
+                try{
+                    throw new Exception("illegal Sequence: Width an height parameters are not set");
+                }catch (Exception e){}
+            }
+            return this;
+        }
+        public Builder withDiagonal(Line diagonal){
+            return withCenterPoint(diagonal.getCenter());
+        }
+
+        public Builder addPoint(Dot point){
+            if(mainDots.size()<4) mainDots.add(point);
+            return this;
+        }
+
+        /*public Builder but() {
+            return aRectangle().withTitle(title).withAuthor(author)
+                    .withPublishDate(publishDate).withPageCount(pageCount);
+        }*/
+
+        public Rectangle build() {
+            Rectangle rect = new Rectangle();
+            rect.setMainDots(mainDots);
+            return rect;
+        }
     }
 }

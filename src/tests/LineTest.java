@@ -23,4 +23,24 @@ public class LineTest {
 
         Assert.assertEquals("static builder via arrays", expectingLine, actualLine);
     }
+
+    @Test
+    public void testCreate() {
+    }
+
+    @Test
+    public void testCreate1() {
+    }
+
+    @Test
+    public void getCenter() {
+        Dot expectingCenter = new Dot(3,3.5);
+        Line actulaLine = new Line(
+                new Dot(1,6),
+                new Dot(5,1)
+        );
+        Assert.assertEquals("check center calculation",actulaLine.getCenter(), expectingCenter);
+        Assert.assertEquals("check center calculation",actulaLine.getCenter().x, 3, 0);
+        Assert.assertEquals("check center calculation",actulaLine.getCenter().y, 3.5,0);
+    }
 }

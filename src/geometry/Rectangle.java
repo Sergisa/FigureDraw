@@ -1,9 +1,6 @@
 package geometry;
 
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
 public class Rectangle extends GeomteryFigure{
@@ -61,19 +58,19 @@ public class Rectangle extends GeomteryFigure{
     public static final class Builder {
 
         private String name;
-        private List<Dot> mainDots;
+        private DotList mainDots;
         private float height;
         private float width;
 
         public Builder() {
-            mainDots = new ArrayList<>();
+            mainDots = new DotList();
         }
 
         public static Builder aRectangle(){
             return new Builder();
         }
 
-        public Builder fromDots(List<Dot> val) {
+        public Builder fromDots(DotList val) {
             mainDots = val;
             return this;
         }
@@ -89,19 +86,17 @@ public class Rectangle extends GeomteryFigure{
         }
 
         public Builder withCenterPoint(Dot center){
-            if(!Float.isNaN(width) && !Float.isNaN(height)){
-                this.mainDots.add(new Dot(center.x-width/2, center.y+height/2));
-                this.mainDots.add(new Dot(center.x+width/2, center.y+height/2));
-                this.mainDots.add(new Dot(center.x+width/2, center.y-height/2));
-                this.mainDots.add(new Dot(center.x-width/2, center.y-height/2));
-            }else{
-                try{
-                    throw new Exception("illegal Sequence: Width an height parameters are not set");
-                }catch (Exception e){}
-            }
+            this.mainDots.clear();
+            this.mainDots.add(new Dot(center.x-width/2, center.y+height/2));
+            this.mainDots.add(new Dot(center.x+width/2, center.y+height/2));
+            this.mainDots.add(new Dot(center.x+width/2, center.y-height/2));
+            this.mainDots.add(new Dot(center.x-width/2, center.y-height/2));
+
             return this;
         }
         public Builder withDiagonal(Line diagonal){
+            width = Math.abs(diagonal.point1.x - diagonal.point2.x);
+            height = Math.abs(diagonal.point1.y - diagonal.point2.y);
             return withCenterPoint(diagonal.getCenter());
         }
 
@@ -109,11 +104,6 @@ public class Rectangle extends GeomteryFigure{
             if(mainDots.size()<4) mainDots.add(point);
             return this;
         }
-
-        /*public Builder but() {
-            return aRectangle().withTitle(title).withAuthor(author)
-                    .withPublishDate(publishDate).withPageCount(pageCount);
-        }*/
 
         public Rectangle build() {
             Rectangle rect = new Rectangle();

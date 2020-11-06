@@ -1,28 +1,27 @@
 package geometry;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class GeomteryFigure implements Figure{
     private Color color;
     private double area;
     private double perimetr;
+    protected DotList mainDots;
     protected String name;
 
     public List<Dot> getMainDots() {
         return mainDots;
     }
 
-    public GeomteryFigure setMainDots(List<Dot> mainDots) {
+    public GeomteryFigure setMainDots(DotList mainDots) {
         this.mainDots = mainDots;
         return this;
     }
 
-    protected List<Dot> mainDots;
     public GeomteryFigure(String name){
         this.name = name;
-        mainDots = new ArrayList<>();
+        mainDots = new DotList();
     }
     @Override
     public String getName() {
@@ -59,7 +58,7 @@ public abstract class GeomteryFigure implements Figure{
     @Override
     public double getPerimeter() {
         double perimetr = 0;
-        for (DotPair pair : getPairs()) {
+        for (DotPair pair : mainDots.getPairs()) {
             perimetr += pair.getDistance();
         }
         return perimetr;
@@ -67,27 +66,10 @@ public abstract class GeomteryFigure implements Figure{
 
     @Override
     public double getArea() {
-        double area = 0;
-        for (int i = 0; i < mainDots.size(); i++){
-            if(i == mainDots.size()-1){ // last iteration
-                area += mainDots.get(i).x * mainDots.get(0).y - mainDots.get(0).x * mainDots.get(i).y;
-            }else{
-                area += mainDots.get(i).x * mainDots.get(i+1).y - mainDots.get(i+1).x * mainDots.get(i).y;
-            }
-        }
-        return Math.abs(area)/2;
+        return Solver.area(mainDots);
     }
 
     public List<DotPair> getPairs() {
-        List<DotPair> dotPairList = new ArrayList<>();
-
-        for (int i = 0; i < mainDots.size(); i++){
-            if(i == mainDots.size()-1){ // last iteration
-                dotPairList.add(new DotPair(mainDots.get(i),mainDots.get(0)));
-            }else{
-                dotPairList.add(new DotPair(mainDots.get(i),mainDots.get(i+1)));
-            }
-        }
-        return dotPairList;
+        return mainDots.getPairs();
     }
 }

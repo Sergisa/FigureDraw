@@ -90,4 +90,13 @@ public class SolverTest {
                 new Dot(1,1)
         ), 0.1);
     }
+
+    @Test
+    public void clockwise() {
+
+    }
+
+    @Test
+    public void counter_clockwise() {
+    }
 }

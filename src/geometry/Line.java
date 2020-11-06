@@ -21,6 +21,10 @@ public class Line extends GeomteryObject {
         return new Dot((point1.x + point2.x)/2, (point1.y + point2.y)/2 );
     }
 
+    public boolean crosses(Line secondLine){
+        return Solver.crosses(this, secondLine);
+    }
+
     @Override
     public String toString() {
         return "Line{" +

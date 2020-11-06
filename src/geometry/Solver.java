@@ -7,12 +7,15 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class Solver {
-    static double distance(Dot d1, Dot d2){
+    public static double distance(Dot d1, Dot d2){
         return Point2D.distance(d1.x,d1.y,d2.x,d2.y);
     }
 
-    static double distance(double x1, double y1, double x2, double y2) {
-        return Point2D.distance(x1, y1, x2, y2);
+    public static double distance(double x1, double y1, double x2, double y2) {
+        return distance(
+                new Dot(x1, y1),
+                new Dot(x2, y2)
+        );
     }
 
     private static boolean intersect(double a, double b, double c, double d){

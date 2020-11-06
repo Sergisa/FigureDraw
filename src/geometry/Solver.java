@@ -70,4 +70,20 @@ public class Solver {
                 cd.point2
         );
     }
+
+    //Функция, проверяющая, образует ли указанная тройка точек поворот по часовой стрелке:
+    public static boolean clockwise (int x1, int y1, int x2, int y2, int x3, int y3) {
+        return doubleArea(
+                new Dot(x1, y1),
+                new Dot(x2, y2),
+                new Dot(x3, y3)) < 0;
+    }
+
+    //Функция, проверяющая, образует ли указанная тройка точек поворот против часовой стрелки:
+    public static boolean counter_clockwise (int x1, int y1, int x2, int y2, int x3, int y3) {
+        return doubleArea(
+                new Dot(x1, y1),
+                new Dot(x2, y2),
+                new Dot(x3, y3)) > 0;
+    }
 }
